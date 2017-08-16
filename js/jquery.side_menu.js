@@ -11,7 +11,9 @@ SideMenu.prototype = {
     this.$showBtn = $(opt.selector.showBtn);
     this.$hideBtn = this.$sideMenu.find('.close_btn');
     this.$list = this.$sideMenu.find('.main_menu > li > a');
+    this.$subMenu = this.$sideMenu.find('.sub_menu');
     this.$shadow = $(opt.selector.shadow);
+
     this.duration = opt.duration || 400;
   },
 
@@ -38,7 +40,7 @@ SideMenu.prototype = {
 
   // 메뉴 열리고 닫히는(토글) 기능
   toggleList: function ($this) {
-    $('.sub_menu').not($this.siblings('.sub_menu')).stop(false, true).slideUp(this.duration);
+    this.$subMenu.not($this.siblings('.sub_menu')).stop(false, true).slideUp(this.duration);
     $this.siblings('.sub_menu').stop(false, true).slideToggle(this.duration);
   },
 
