@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   var $sideMenu = $('.side_menu'),
     $showBtn = $('.side_menu_btn'),
-    $hideBtn = $('.side_menu .close_btn'),
+    $hideBtn = $('.side_menu').find('.close_btn'),
     $list = $sideMenu.find('.main_menu > li > a'),
     $shadow = $('.side_shadow');
 

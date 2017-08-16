@@ -4,15 +4,15 @@ function SideMenu(options) {
 }
 
 SideMenu.prototype = {
-  
+
   // 구조 정의
   init: function (opt) {
-    this.$sideMenu = $(opt.selector = opt.selector ? opt.selector : '.side_menu');
-    this.$showBtn = $(opt.showBtn = opt.showBtn ? opt.showBtn : '.side_menu_btn');
+    this.$sideMenu = $(opt.selector.menu);
+    this.$showBtn = $(opt.selector.showBtn);
     this.$hideBtn = this.$sideMenu.find('.close_btn');
     this.$list = this.$sideMenu.find('.main_menu > li > a');
-    this.$shadow = $(opt.shadow = opt.shadow ? opt.shadow : '.side_shadow');
-    this.duration = 500;
+    this.$shadow = $(opt.selector.shadow);
+    this.duration = opt.duration || 400;
   },
 
   // 처음부터 시작할 함수들 모음
@@ -20,7 +20,7 @@ SideMenu.prototype = {
     this.clickHandler();
   },
 
-  // 사이드메뉴 나타남 기능
+  // 사이드메뉴 나타남
   showMenu: function () {
     this.$sideMenu.stop().animate({
       left: 0
@@ -28,7 +28,7 @@ SideMenu.prototype = {
     this.$shadow.stop().fadeIn(this.duration);
   },
 
-  // 사이트메뉴 사라짐 기능
+  // 사이트메뉴 사라짐
   hideMenu: function () {
     this.$sideMenu.stop().animate({
       left: -500
@@ -58,5 +58,3 @@ SideMenu.prototype = {
   }
 
 };
-
-
